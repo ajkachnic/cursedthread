@@ -3,12 +3,6 @@ import { Worker } from "node:worker_threads";
 import { parse, print } from "recast";
 import { builders as b, visit } from "ast-types";
 
-function test() {
-  onmessage = (args) => {
-    (function abc(args) {})(args);
-  };
-}
-
 function run(transformed, args) {
   const worker = new Worker(transformed, {
     eval: true,
@@ -81,7 +75,6 @@ function transform(ast) {
         b.spreadElement(
           b.memberExpression(b.identifier("workerData"), b.identifier("args"))
         ),
-        // ),
       ])
     ),
   ]);
@@ -89,16 +82,9 @@ function transform(ast) {
   return print(transformed).code;
 }
 
-/**
- *
- * @param {Function} func
- * @param {any[]} args
- */
 export function Thread(func, ...args) {
   const ast = parse(func.toString());
   const transformed = transform(ast, args);
-
-  // console.log(transformed);
 
   return run(transformed, args);
 }
