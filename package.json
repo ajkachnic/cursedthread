@@ -1,0 +1,12 @@
+{
+  "name": "cursedthread",
+  "version": "1.0.0",
+  "type": "module",
+  "main": "src/index.js",
+  "author": "Andrew Kachnic",
+  "license": "MIT",
+  "dependencies": {
+    "ast-types": "^0.14.2",
+    "recast": "^0.23.4"
+  }
+}
