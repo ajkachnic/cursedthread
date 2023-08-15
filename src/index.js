@@ -1,7 +1,7 @@
 import { Worker } from "node:worker_threads";
 
 import { parse, print } from "recast";
-import { builders as b, getFieldNames, getFieldValue, visit } from "ast-types";
+import { builders as b, visit } from "ast-types";
 
 function test() {
   onmessage = (args) => {

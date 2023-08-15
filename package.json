@@ -5,6 +5,10 @@
   "main": "src/index.js",
   "author": "Andrew Kachnic",
   "license": "MIT",
+  "types": "./src/index.d.ts",
+  "exports": {
+    "types": "./src/index.d.ts"
+  },
   "dependencies": {
     "ast-types": "^0.14.2",
     "recast": "^0.23.4"
